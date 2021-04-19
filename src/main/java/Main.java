@@ -13,7 +13,7 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		AnchorPane anchorPane = null;
 		try {
-			anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("connexion.fxml"));
+			anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("Main.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
