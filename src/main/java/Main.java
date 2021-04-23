@@ -17,8 +17,9 @@ public class Main extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		stage.setScene(new Scene(anchorPane));
-		stage.setTitle("Banque d'images");
+		stage.setScene(new Scene(anchorPane,1024,576));
+		stage.setTitle("ImageBank");
+		stage.setResizable(false);
 		stage.show();
 		stage.setOnCloseRequest(evt -> {
 			System.exit(0);
