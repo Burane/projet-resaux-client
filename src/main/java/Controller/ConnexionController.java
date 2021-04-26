@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import request.send.LoginRequest;
+import server.Client;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +28,8 @@ public class ConnexionController {
 		stage.setScene(scene);
 		stage.show();
 
+		Client client = Client.getInstance();
+		client.send(new LoginRequest("username","password"));
 //		ArrayList images = new ArrayList();
 //
 //		for(Object image : images){

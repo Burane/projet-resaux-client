@@ -27,9 +27,9 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		launch(args);
 		Thread t = new Thread(Client.getInstance());
 		t.start();
+		launch(args);
 	}
 
 }
