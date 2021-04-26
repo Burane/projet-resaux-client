@@ -1,6 +1,7 @@
 package server;
 
 import request.RequestHandler;
+import request.send.GenericRequest;
 
 import java.io.*;
 import java.net.Socket;
@@ -36,7 +37,7 @@ public class Client implements Runnable {
 		}
 	}
 
-	public void respond(byte[] content) {
+	public void send(byte[] content) {
 		try {
 			writer = new PrintStream(client.getOutputStream());
 			writer.write(content);
@@ -46,10 +47,19 @@ public class Client implements Runnable {
 		writer.flush();
 	}
 
-	public void respond(String content) {
+	public void send(String content) {
 		try {
 			writer = new PrintStream(client.getOutputStream());
 			writer.write(content.getBytes(StandardCharsets.UTF_8));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		writer.flush();
+	}
+	public void send(GenericRequest request) {
+		try {
+			writer = new PrintStream(client.getOutputStream());
+			writer.write(request.toJson().getBytes(StandardCharsets.UTF_8));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

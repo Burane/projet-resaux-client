@@ -1,6 +1,6 @@
-package request;
+package request.receive;
 
-public enum RequestType {
+public enum ResponseType {
 	AUTHENTIFICATION("authentification"),
 
 	ERROR("error"),
@@ -18,7 +18,7 @@ public enum RequestType {
 		return field;
 	}
 
-	RequestType(String field) {
+	ResponseType(String field) {
 		this.field = field;
 	}
 }
