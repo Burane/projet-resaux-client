@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import server.Client;
 
 import java.io.IOException;
 
@@ -27,6 +28,8 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+		Thread t = new Thread(Client.getInstance());
+		t.start();
 	}
 
 }

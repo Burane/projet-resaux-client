@@ -4,13 +4,14 @@ import request.RequestHandler;
 import request.send.GenericRequest;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 
 public class Client implements Runnable {
 
-	private final Socket client;
+	private Socket client;
 	private PrintStream writer;
 	private BufferedReader reader;
 	private RequestHandler requestHandler;
@@ -18,8 +19,29 @@ public class Client implements Runnable {
 	private boolean isAuthentified = false;
 	private int userId = -1;
 
-	public Client(Socket ClientSock) {
-		client = ClientSock;
+	private static volatile Client instance;
+
+	private Client() {
+		try {
+			client = new Socket(System.getProperty("server.url"), Integer.parseInt(System.getProperty("server.port")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(client.getLocalAddress() + " " + client.getLocalPort());
+	}
+
+	public static Client getInstance() {
+		Client client = instance;
+
+		if (client != null)
+			return client;
+
+		synchronized (Client.class) {
+			if (instance == null)
+				instance = new Client();
+			return instance;
+		}
+
 	}
 
 	public void run() {
@@ -56,6 +78,7 @@ public class Client implements Runnable {
 		}
 		writer.flush();
 	}
+
 	public void send(GenericRequest request) {
 		try {
 			writer = new PrintStream(client.getOutputStream());
