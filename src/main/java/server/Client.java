@@ -53,7 +53,6 @@ public class Client implements Runnable {
 			requestHandler = new RequestHandler(this);
 			while (isRunning) {
 				String request = receiveContent();
-				assert request != null;
 				if (!request.isEmpty()) {
 					queue.addFirst(request);
 					System.out.println(request);

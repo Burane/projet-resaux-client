@@ -8,22 +8,23 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AcceuilController {
 
     @FXML
-    public Button ajouter;
+    public MenuItem ajouter;
 
     @FXML
     public Button buton;
@@ -39,11 +40,11 @@ public class AcceuilController {
 
 
     public  void onAjouter (ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+//        Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
+//        Scene scene = new Scene(root);
+//        Stage stage = (Stage) rootPane.getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     public void onTest(ActionEvent actionEvent) {

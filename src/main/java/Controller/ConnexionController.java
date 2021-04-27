@@ -14,8 +14,8 @@ import server.Client;
 import java.io.IOException;
 
 public class ConnexionController {
-	public TextField username;
-	public TextField password;
+	@FXML public TextField username;
+	@FXML public TextField password;
 	@FXML private AnchorPane rootPane;
 
 	public void OnConnexion(ActionEvent actionEvent) throws IOException {
@@ -26,7 +26,7 @@ public class ConnexionController {
 		stage.show();
 
 		Client client = Client.getInstance();
-		client.send(new LoginRequest(username.getText(),password.getText()));
+		client.send(new LoginRequest(username.getText(), password.getText()));
 
 	}
 }
