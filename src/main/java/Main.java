@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import request.send.DisconnectRequest;
 import server.Client;
 
 import java.io.IOException;
@@ -22,15 +23,20 @@ public class Main extends Application {
 		stage.setResizable(false);
 		stage.show();
 		stage.setOnCloseRequest(evt -> {
-//			Client.getInstance().close();
 			System.exit(0);
 		});
 	}
 
 	public static void main(String[] args) {
-		Thread t = new Thread(Client.getInstance());
-		t.start();
-		launch(args);
+		try{
+
+			Thread t = new Thread(Client.getInstance());
+			t.start();
+			launch(args);
+		} catch (Exception e){
+			Client.getInstance().send(new DisconnectRequest());
+			System.exit(0);
+		}
 	}
 
 }

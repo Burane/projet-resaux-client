@@ -18,4 +18,16 @@ public class ImageResponse extends GenericResponse implements GenericResponseInt
 		// TODO transmettre l'instance au controller
 
 	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public int getImageId() {
+		return imageId;
+	}
 }

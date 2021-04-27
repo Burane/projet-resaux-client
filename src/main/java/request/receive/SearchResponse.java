@@ -1,5 +1,6 @@
 package request.receive;
 
+import event.EventBus;
 import server.Client;
 
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ public class SearchResponse extends GenericResponse implements GenericResponseIn
 
 	@Override
 	public void handle(Client client) {
-		// TODO transmettre l'instance au controller
-
-
+		EventBus.getInstance().notifySearchListeners(this);
 	}
 
-
+	public ArrayList<ImageResponse> getImages() {
+		return images;
+	}
 }
