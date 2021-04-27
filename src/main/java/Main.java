@@ -22,6 +22,7 @@ public class Main extends Application {
 		stage.setResizable(false);
 		stage.show();
 		stage.setOnCloseRequest(evt -> {
+//			Client.getInstance().close();
 			System.exit(0);
 		});
 	}

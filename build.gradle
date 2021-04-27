@@ -15,10 +15,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
 }
 
-javafx {
-    version = "15.0.1"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
-}
+    javafx {
+        version = "15.0.1"
+        modules = ['javafx.controls', 'javafx.fxml']
+    }
 
 tasks.withType(JavaExec) {
     systemProperty "server.url", "127.0.0.1"

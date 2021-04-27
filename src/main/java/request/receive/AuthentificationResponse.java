@@ -1,5 +1,6 @@
 package request.receive;
 
+import event.EventBus;
 import server.Client;
 
 public class AuthentificationResponse extends GenericResponse implements GenericResponseInterface {
@@ -11,6 +12,15 @@ public class AuthentificationResponse extends GenericResponse implements Generic
 
 	@Override
 	public void handle(Client client) {
+		EventBus.getInstance().notifyAuthentificationListeners(this);
+	}
 
+	@Override
+	public String toString() {
+		return "AuthentificationResponse{" + "success=" + success + '}';
+	}
+
+	public boolean isSuccess() {
+		return success;
 	}
 }

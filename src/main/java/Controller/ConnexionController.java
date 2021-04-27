@@ -1,41 +1,60 @@
 package Controller;
 
-import com.sun.tools.javac.Main;
+import event.EventBus;
+import event.interfaces.AuthentificationEventInterface;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import request.receive.AuthentificationResponse;
 import request.send.LoginRequest;
 import server.Client;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 
-public class ConnexionController {
+public class ConnexionController implements AuthentificationEventInterface {
+	@FXML public TextField username;
+	@FXML public TextField password;
 	@FXML private AnchorPane rootPane;
 
-	public void OnConnexion(ActionEvent actionEvent) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("Acceuil.fxml"));
-		Scene scene = new Scene(root);
-		Stage stage = (Stage) rootPane.getScene().getWindow();
-		stage.setScene(scene);
-		stage.show();
+	@FXML
+	public void initialize() {
+		EventBus.getInstance().subscribeToAuthentificationEvent(this);
+	}
 
+	public void OnConnexion(ActionEvent actionEvent) {
 		Client client = Client.getInstance();
-		client.send(new LoginRequest("username","password"));
-//		ArrayList images = new ArrayList();
-//
-//		for(Object image : images){
-//			ImageView imgview = new ImageView();
-//			imgview.setImage(new Image(InputStream.nullInputStream()));
-//			rootPane.getChildren().add(imgview);
-//		}
+		client.send(new LoginRequest(username.getText(), password.getText()));
+	}
+
+	@Override
+	public void onAuthentificationResponse(AuthentificationResponse authentificationResponse) {
+		System.out.println("AUTH CONTROLERS " + authentificationResponse);
+
+		if (authentificationResponse.isSuccess()) {
+			EventBus.getInstance().unSubscribeToAuthentificationEvent(this);
+			setAccueilScene();
+		}
+	}
+
+	public void setAccueilScene() {
+		Platform.runLater(() -> {
+			Parent root = null;
+			try {
+				root = FXMLLoader.load(getClass().getResource("Acceuil.fxml"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			Scene scene = new Scene(root);
+			Stage stage = (Stage) rootPane.getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		});
+
 	}
 }
