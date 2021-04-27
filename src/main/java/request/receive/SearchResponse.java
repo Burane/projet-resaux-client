@@ -15,6 +15,7 @@ public class SearchResponse extends GenericResponse implements GenericResponseIn
 	public void handle(Client client) {
 		// TODO transmettre l'instance au controller
 
+
 	}
 
 

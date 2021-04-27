@@ -23,7 +23,6 @@ public class RequestHandler {
 			System.err.println(e.getMessage());
 			return;
 		}
-
 		request.handle(client);
 
 	}
