@@ -1,6 +1,7 @@
 package server;
 
 import request.RequestHandler;
+import request.send.DisconnectRequest;
 import request.send.GenericRequest;
 
 import java.io.*;
@@ -62,6 +63,7 @@ public class Client implements Runnable {
 				}
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			close();
 		}
 	}
@@ -146,6 +148,7 @@ public class Client implements Runnable {
 
 	public void close() {
 		System.out.println("Closing connection with :" + client.getInetAddress() + ":" + client.getLocalPort());
+		send(new DisconnectRequest());
 		isRunning = false;
 		try {
 			client.close();
