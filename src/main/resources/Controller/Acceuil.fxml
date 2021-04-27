@@ -16,13 +16,13 @@
 
 <AnchorPane prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AcceuilController">
    <children>
-      <VBox layoutX="7.0" layoutY="6.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="button" layoutX="7.0" layoutY="6.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <MenuBar>
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Ajouter Image" />
+                    <MenuItem fx:id="ajouter" mnemonicParsing="false" onAction="#onAjouter" text="Ajouter Image" />
                         <MenuItem mnemonicParsing="false" text="Rechercher Image" />
                   </items>
                 </Menu>
@@ -49,7 +49,6 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button mnemonicParsing="false" onAction="#onTest" text="Button" />
             <GridPane fx:id="grille">
               <rowConstraints>
                   <RowConstraints maxHeight="124.0" minHeight="10.0" prefHeight="124.0" vgrow="SOMETIMES" />
@@ -76,6 +75,10 @@
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
+            <Button fx:id="buton" mnemonicParsing="false" onAction="#onTest" text="Ajouter">
+               <VBox.margin>
+                  <Insets left="50.0" top="10.0" />
+               </VBox.margin></Button>
          </children>
       </VBox>
    </children>
