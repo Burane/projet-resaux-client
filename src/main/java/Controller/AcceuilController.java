@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,6 +21,13 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AcceuilController {
+
+    @FXML
+    public Button ajouter;
+
+    @FXML
+    public Button buton;
+
     @FXML
     public GridPane grille;
 
@@ -28,6 +36,15 @@ public class AcceuilController {
 
     @FXML
     public ImageView image;
+
+
+    public  void onAjouter (ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) rootPane.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public void onTest(ActionEvent actionEvent) {
 //        String data = text.getText();
@@ -43,6 +60,8 @@ public class AcceuilController {
         grille.setHgap(100); //horizontal gap in pixels => that's what you are asking for
         grille.setVgap(100); //vertical gap in pixels
         grille.setPadding(new Insets(10, 10, 10, 10));
+
+        buton.setVisible(false);
 
         try {
 
