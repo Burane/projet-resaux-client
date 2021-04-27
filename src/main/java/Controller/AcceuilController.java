@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -21,6 +22,9 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AcceuilController {
+
+    @FXML
+    public AnchorPane rootPane;
 
     @FXML
     public Button ajouter;

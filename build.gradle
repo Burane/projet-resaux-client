@@ -22,5 +22,5 @@ javafx {
 
 tasks.withType(JavaExec) {
     systemProperty "server.url", "127.0.0.1"
-    systemProperty "server.port", 37742
+    systemProperty "server.port", 42345
 }
