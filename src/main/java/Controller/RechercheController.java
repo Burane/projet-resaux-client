@@ -6,19 +6,24 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import request.receive.PreviewImageResponse;
 import request.receive.SearchResponse;
-import request.send.FullImageRequest;
 import request.send.SearchRequest;
 import server.Client;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -53,10 +58,10 @@ public class RechercheController implements SearchEventInterface {
 					ImageView imageView = (ImageView) nodes.get(i);
 					imageView.setCache(false);
 					if (i < images.size()) {
-						System.out.println(images.get(i).getTitre());
+						System.out.println(images.get(i).getTitre() + " " + images.get(i).getImageId());
 						String data = images.get(i).getData();
 						InputStream inputstream = new ByteArrayInputStream(Base64.getDecoder().decode(data));
-						Image image = new Image(inputstream, 100,100,true,false);
+						Image image = new Image(inputstream, 100, 100, true, false);
 						imageView.setImage(image);
 						imageView.setOnMouseClicked(getFullImage(images.get(i).getImageId()));
 					} else {
@@ -69,7 +74,36 @@ public class RechercheController implements SearchEventInterface {
 
 	private EventHandler<? super MouseEvent> getFullImage(int imageId) {
 		return (EventHandler<MouseEvent>) event -> {
-			Client.getInstance().send(new FullImageRequest(imageId));
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("image.fxml"));
+
+			loader.setControllerFactory((Class<?> controllerType) -> {
+				if (controllerType == ImageController.class) {
+					ImageController controller = new ImageController();
+					controller.setImageId(imageId);
+					return controller;
+				} else {
+					try {
+						return controllerType.getDeclaredConstructor().newInstance();
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+				}
+			});
+
+			Stage stage = new Stage(StageStyle.DECORATED);
+			try {
+				stage.setScene(new Scene(loader.load()));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			ImageController controller = loader.getController();
+
+			controller.setImageId(imageId);
+			stage.setResizable(false);
+			stage.show();
+
 		};
 
 	}

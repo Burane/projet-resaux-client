@@ -1,5 +1,6 @@
 package request.receive;
 
+import event.EventBus;
 import server.Client;
 
 public class FullImageResponse extends GenericResponse implements GenericResponseInterface {
@@ -19,8 +20,7 @@ public class FullImageResponse extends GenericResponse implements GenericRespons
 
 	@Override
 	public void handle(Client client) {
-		// TODO transmettre l'instance au controller
-
+		EventBus.getInstance().notifyFullImageListeners(this);
 	}
 
 	public String getTitre() {
@@ -41,5 +41,10 @@ public class FullImageResponse extends GenericResponse implements GenericRespons
 
 	public int getNbLike() {
 		return nbLike;
+	}
+
+	@Override
+	public String toString() {
+		return "FullImageResponse{" + "titre='" + titre + '\'' + ", imageId=" + imageId + ", isLikedByUser=" + isLikedByUser + ", nbLike=" + nbLike + '}';
 	}
 }
