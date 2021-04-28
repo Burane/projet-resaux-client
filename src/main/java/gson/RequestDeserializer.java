@@ -16,6 +16,7 @@ public abstract class RequestDeserializer {
 				.registerSubtype(SuccessResponse.class, ResponseType.SUCCESS.toString())
 				.registerSubtype(SearchResponse.class, ResponseType.SEARCH.toString())
 				.registerSubtype(PreviewImageResponse.class, ResponseType.PREVIEWIMAGE.toString())
+				.registerSubtype(LikeResponse.class, ResponseType.LIKE.toString())
 				.registerSubtype(FullImageResponse.class, ResponseType.FULLIMAGE.toString());
 
 

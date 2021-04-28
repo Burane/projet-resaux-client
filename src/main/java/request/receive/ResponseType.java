@@ -11,6 +11,8 @@ public enum ResponseType {
 
 	FULLIMAGE("fullImage"),
 
+	LIKE("like"),
+
 	SEARCH("search");
 
 	private final String field;
