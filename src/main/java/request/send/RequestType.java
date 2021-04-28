@@ -4,7 +4,7 @@ public enum RequestType {
 
 	DELETE("delete"),
 	DISCONNECT("disconnect"),
-	IMAGE("image"),
+	FULLIMAGE("fullImage"),
 	LOGIN("login"),
 	REGISTER("register"),
 	SEARCH("search"),

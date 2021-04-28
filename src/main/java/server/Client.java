@@ -91,7 +91,7 @@ public class Client implements Runnable {
 	public void send(GenericRequest request) {
 		try {
 			System.out.println(request.toJson());
-			writer.write(request.toJson().getBytes());
+			writer.write(request.toJson().getBytes(StandardCharsets.UTF_8));
 			writeEndLine();
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -7,7 +7,9 @@ public enum ResponseType {
 
 	SUCCESS("success"),
 
-	IMAGE("image"),
+	PREVIEWIMAGE("previewImage"),
+
+	FULLIMAGE("fullImage"),
 
 	SEARCH("search");
 

@@ -6,7 +6,8 @@ import javafx.stage.Stage;
 import request.send.DisconnectRequest;
 import server.Client;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class Main extends Application {
 
@@ -28,8 +29,8 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
+		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, StandardCharsets.UTF_8));
 		try{
-
 			Thread t = new Thread(Client.getInstance());
 			t.start();
 			launch(args);
