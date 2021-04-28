@@ -56,7 +56,7 @@ public class RechercheController implements SearchEventInterface {
 						System.out.println(images.get(i).getTitre());
 						String data = images.get(i).getData();
 						InputStream inputstream = new ByteArrayInputStream(Base64.getDecoder().decode(data));
-						Image image = new Image(inputstream, 100,100,true,false);
+						Image image = new Image(inputstream, 200,200,true,false);
 						imageView.setImage(image);
 						imageView.setOnMouseClicked(getFullImage(images.get(i).getImageId()));
 					} else {
