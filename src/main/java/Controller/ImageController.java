@@ -38,10 +38,6 @@ public class ImageController implements FullImageEventInterface {
 		this.imageId = imageId;
 	}
 
-	public int getImageId() {
-		return imageId;
-	}
-
 	@FXML private Button likeButton;
 	@FXML private Button downloadButton;
 	@FXML private Pane imageView;

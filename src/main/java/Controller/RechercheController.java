@@ -9,17 +9,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import request.receive.PreviewImageResponse;
 import request.receive.SearchResponse;
-import request.send.FullImageRequest;
 import request.send.SearchRequest;
 import server.Client;
 
@@ -34,39 +32,55 @@ public class RechercheController implements SearchEventInterface {
 
 	@FXML private TextField rechercheField;
 	@FXML private GridPane gridPane;
+	@FXML private Label page;
+
+	private int imagePerPage;
+	private int pageNumber = 0;
 
 	@FXML
 	public void initialize() {
 		EventBus.getInstance().subscribeToSearchEvent(this);
+		imagePerPage = gridPane.getRowCount() * gridPane.getColumnCount();
 	}
 
 	public void onRecherche(ActionEvent actionEvent) {
+		page.setText("Page : " + (pageNumber + 1));
 		String query = rechercheField.getText();
-		Client.getInstance().send(new SearchRequest(query, 0, 9));
+		int limitFrom = pageNumber * imagePerPage;
+		int limitTo = (pageNumber + 1) * imagePerPage;
+		System.out.println("limitFrom " + limitFrom + " limitTo " + limitTo);
+		Client.getInstance().send(new SearchRequest(query, limitFrom, limitTo));
 	}
 
 	@Override
 	public void onSearchResponse(SearchResponse searchResponse) {
-		System.out.println("ON cherche response");
 		loadImages(searchResponse.getImages());
 	}
 
 	private void loadImages(ArrayList<PreviewImageResponse> images) {
 		List<Node> nodes = gridPane.getChildren();
 		Platform.runLater(() -> {
+			System.out.println("nodes.size() " + nodes.size());
+			System.out.println("images.size() " + images.size());
 			for (int i = 0; i < nodes.size(); i++) {
-				if (nodes.get(i) instanceof ImageView) {
-					ImageView imageView = (ImageView) nodes.get(i);
+				if (nodes.get(i) instanceof AnchorPane) {
+
+					AnchorPane imageView = (AnchorPane) nodes.get(i);
 					imageView.setCache(false);
+
 					if (i < images.size()) {
-						System.out.println(images.get(i).getTitre() + " " + images.get(i).getImageId());
+
 						String data = images.get(i).getData();
 						InputStream inputstream = new ByteArrayInputStream(Base64.getDecoder().decode(data));
-						Image image = new Image(inputstream, 200,200,true,false);
-						imageView.setImage(image);
+						Image image = new Image(inputstream, 200, 200, true, false);
+						imageView.setBackground(new Background(
+								new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+										BackgroundPosition.CENTER,
+										new BackgroundSize(1.0, 1.0, true, true, true, false))));
 						imageView.setOnMouseClicked(getFullImage(images.get(i).getImageId()));
+
 					} else {
-						imageView.setImage(null);
+						imageView.setBackground(null);
 					}
 				}
 			}
@@ -107,5 +121,17 @@ public class RechercheController implements SearchEventInterface {
 
 		};
 
+	}
+
+	public void onPrecedent(ActionEvent actionEvent) {
+		if (pageNumber > 0) {
+			pageNumber--;
+			onRecherche(null);
+		}
+	}
+
+	public void onSuivant(ActionEvent actionEvent) {
+		pageNumber++;
+		onRecherche(null);
 	}
 }
