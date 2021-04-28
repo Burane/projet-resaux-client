@@ -1,9 +1,13 @@
 package event;
 
 import event.interfaces.AuthentificationEventInterface;
+import event.interfaces.ErrorEventInterface;
 import event.interfaces.SearchEventInterface;
+import event.interfaces.SuccessEventInterface;
 import request.receive.AuthentificationResponse;
+import request.receive.ErrorResponse;
 import request.receive.SearchResponse;
+import request.receive.SuccessResponse;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -11,6 +15,8 @@ public class EventBus {
 	private static volatile EventBus instance;
 	private CopyOnWriteArrayList<AuthentificationEventInterface> authentificationListeners = new CopyOnWriteArrayList<>();
 	private CopyOnWriteArrayList<SearchEventInterface> searchListeners = new CopyOnWriteArrayList<>();
+	private CopyOnWriteArrayList<SuccessEventInterface> successListeners = new CopyOnWriteArrayList<>();
+	private CopyOnWriteArrayList<ErrorEventInterface> errorListeners = new CopyOnWriteArrayList<>();
 
 	private EventBus() {
 	}
@@ -51,5 +57,29 @@ public class EventBus {
 
 	public void notifySearchListeners(SearchResponse searchResponse) {
 		searchListeners.forEach(obj -> obj.onSearchResponse(searchResponse));
+	}
+
+	public void subscribeToSuccessEvent(SuccessEventInterface listener) {
+		successListeners.add(listener);
+	}
+
+	public void unSubscribeToSuccessEvent(SuccessEventInterface listener) {
+		successListeners.remove(listener);
+	}
+
+	public void notifySuccessListeners(SuccessResponse successResponse) {
+		successListeners.forEach(obj -> obj.onSuccessResponse(successResponse));
+	}
+
+	public void subscribeToErrorEvent(ErrorEventInterface listener) {
+		errorListeners.add(listener);
+	}
+
+	public void unSubscribeToErrorEvent(ErrorEventInterface listener) {
+		errorListeners.remove(listener);
+	}
+
+	public void notifyErrorListeners(ErrorResponse errorResponse) {
+		errorListeners.forEach(obj -> obj.onErrorResponse(errorResponse));
 	}
 }
