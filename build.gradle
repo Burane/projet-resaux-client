@@ -6,6 +6,7 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 mainClassName = 'Main'
+compileJava.options.encoding = 'UTF-8'
 
 repositories {
     mavenCentral()
@@ -23,4 +24,8 @@ dependencies {
 tasks.withType(JavaExec) {
     systemProperty "server.url", "127.0.0.1"
     systemProperty "server.port", 42345
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }

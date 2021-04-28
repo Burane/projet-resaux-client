@@ -15,7 +15,7 @@ import request.receive.AuthentificationResponse;
 import request.send.LoginRequest;
 import server.Client;
 
-import java.io.IOException;
+import java.io.*;
 
 public class ConnexionController implements AuthentificationEventInterface {
 	@FXML public TextField username;

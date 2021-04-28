@@ -3,16 +3,18 @@ package Controller;
 import event.EventBus;
 import event.interfaces.SearchEventInterface;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import request.receive.ImageResponse;
+import request.receive.PreviewImageResponse;
 import request.receive.SearchResponse;
+import request.send.FullImageRequest;
 import request.send.SearchRequest;
 import server.Client;
 
@@ -43,7 +45,7 @@ public class RechercheController implements SearchEventInterface {
 		loadImages(searchResponse.getImages());
 	}
 
-	private void loadImages(ArrayList<ImageResponse> images) {
+	private void loadImages(ArrayList<PreviewImageResponse> images) {
 		List<Node> nodes = gridPane.getChildren();
 		Platform.runLater(() -> {
 			for (int i = 0; i < nodes.size(); i++) {
@@ -56,12 +58,19 @@ public class RechercheController implements SearchEventInterface {
 						InputStream inputstream = new ByteArrayInputStream(Base64.getDecoder().decode(data));
 						Image image = new Image(inputstream, 100,100,true,false);
 						imageView.setImage(image);
-
+						imageView.setOnMouseClicked(getFullImage(images.get(i).getImageId()));
 					} else {
 						imageView.setImage(null);
 					}
 				}
 			}
 		});
+	}
+
+	private EventHandler<? super MouseEvent> getFullImage(int imageId) {
+		return (EventHandler<MouseEvent>) event -> {
+			Client.getInstance().send(new FullImageRequest(imageId));
+		};
+
 	}
 }
