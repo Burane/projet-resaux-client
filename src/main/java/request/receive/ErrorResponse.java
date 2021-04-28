@@ -1,5 +1,6 @@
 package request.receive;
 
+import event.EventBus;
 import server.Client;
 
 public class ErrorResponse extends GenericResponse implements GenericResponseInterface {
@@ -11,6 +12,11 @@ public class ErrorResponse extends GenericResponse implements GenericResponseInt
 
 	@Override
 	public void handle(Client client) {
+		EventBus.getInstance().notifyErrorListeners(this);
+	}
 
+	@Override
+	public String toString() {
+		return "ErrorResponse{" + "message='" + message + '\'' + '}';
 	}
 }
