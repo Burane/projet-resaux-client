@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,7 +17,7 @@ public class MainController {
 	@FXML
 	AnchorPane rootPane;
 
-	public void OnConnexion(ActionEvent actionEvent) throws IOException {
+	public void onConnexion(ActionEvent actionEvent) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) rootPane.getScene().getWindow();
@@ -36,4 +35,5 @@ public class MainController {
 		stage.setScene(scene);
 		stage.show();
 	}
+
 }

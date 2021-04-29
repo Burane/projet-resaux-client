@@ -59,6 +59,18 @@ public class ConnexionController implements AuthentificationEventInterface {
 	}
 
 	public void onRetour(ActionEvent actionEvent) {
+		Platform.runLater(() -> {
+			Parent root = null;
+			try {
+				root = FXMLLoader.load(getClass().getResource("../Main.fxml"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			Scene scene = new Scene(root);
+			Stage stage = (Stage) rootPane.getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		});
 	}
 
 	public void onConnexion(ActionEvent actionEvent) {

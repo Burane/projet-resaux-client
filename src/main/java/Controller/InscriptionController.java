@@ -2,6 +2,7 @@ package Controller;
 
 import event.EventBus;
 import event.interfaces.ErrorEventInterface;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,5 +50,18 @@ public class InscriptionController implements ErrorEventInterface {
 		System.out.println(errorResponse);
 	}
 
-
+	public void onRetour(ActionEvent actionEvent) {
+		Platform.runLater(() -> {
+			Parent root = null;
+			try {
+				root = FXMLLoader.load(getClass().getResource("../Main.fxml"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			Scene scene = new Scene(root);
+			Stage stage = (Stage) rootPane.getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		});
+	}
 }

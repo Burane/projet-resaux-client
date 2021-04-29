@@ -7,52 +7,62 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.InscriptionController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Inscription">
-               <font>
-                  <Font size="45.0" />
-               </font>
+            <HBox alignment="CENTER">
                <VBox.margin>
-                  <Insets left="500.0" top="50.0" />
+                  <Insets top="10.0" />
                </VBox.margin>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Nom d'utilisateur :">
+                  <Label text="Inscription">
                      <font>
-                        <Font size="28.0" />
+                        <Font size="45.0" />
                      </font>
-                     <padding>
-                        <Insets right="50.0" />
-                     </padding>
                   </Label>
-                  <TextField fx:id="username">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Mot de passe :">
+                  <Label prefWidth="350.0" text="Nom d'utilisateur :">
                      <font>
                         <Font size="28.0" />
                      </font>
-                     <padding>
+                     <HBox.margin>
                         <Insets right="50.0" />
-                     </padding>
+                     </HBox.margin>
                   </Label>
-                  <PasswordField fx:id="password">
+                  <Region prefHeight="40.0" prefWidth="0.0" />
+                  <TextField fx:id="username" prefColumnCount="15">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0">
+               <children>
+                  <Label prefWidth="350.0" text="Mot de passe :">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Region prefHeight="40.0" prefWidth="0.0" />
+                  <PasswordField fx:id="password" prefColumnCount="15">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -62,61 +72,56 @@
                   </PasswordField>
                </children>
                <VBox.margin>
-                  <Insets />
+                  <Insets top="10.0" />
                </VBox.margin>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="401.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="40.0" prefWidth="373.0" text="Confirmer Mot de passe :">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                     <padding>
-                        <Insets right="50.0" />
-                     </padding>
-                  </Label>
-                  <PasswordField fx:id="passwordConfirmation">
+                  <Label prefWidth="350.0" text="Confirmer mot de passe :">
                      <font>
                         <Font size="28.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="100.0" />
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Region prefHeight="40.0" prefWidth="0.0" />
+                  <PasswordField fx:id="passwordConfirmation" prefColumnCount="15">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" />
                      </HBox.margin>
                   </PasswordField>
                </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </HBox>
             <HBox alignment="CENTER">
                <VBox.margin>
-                  <Insets />
+                  <Insets top="10.0" />
                </VBox.margin>
                <children>
-                  <Button minWidth="53.0" mnemonicParsing="false" onAction="#onInscription" prefHeight="48.0" prefWidth="141.0" text="S'inscrire">
+                  <Button minWidth="53.0" mnemonicParsing="false" onAction="#onRetour" prefHeight="50.0" prefWidth="200.0" text="Retour">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Region prefHeight="200.0" prefWidth="50.0" />
+                  <Button minWidth="53.0" mnemonicParsing="false" onAction="#onInscription" prefHeight="50.0" prefWidth="200.0" text="S'inscrire">
                      <font>
                         <Font size="26.0" />
                      </font>
                      <HBox.margin>
-                        <Insets top="20.0" />
+                        <Insets />
                      </HBox.margin>
                   </Button>
                </children>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="426.0">
-               <children>
-                  <Button minWidth="53.0" mnemonicParsing="false" onAction="#onInscription" prefHeight="48.0" prefWidth="141.0" text="Retour">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets top="80.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="10.0" top="10.0" />
-               </padding>
             </HBox>
          </children>
       </VBox>

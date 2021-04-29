@@ -17,6 +17,7 @@ public class RechercheController extends ImagePreviewController implements Searc
 	public void initialize() {
 		EventBus.getInstance().subscribeToSearchEvent(this);
 		imagePerPage = gridPane.getRowCount() * gridPane.getColumnCount();
+		onRecherche(null);
 	}
 
 	@Override

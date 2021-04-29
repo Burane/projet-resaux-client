@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -12,24 +13,29 @@
    <children>
       <VBox prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Choisir le mode de connexion">
-               <font>
-                  <Font size="41.0" />
-               </font>
+            <HBox alignment="CENTER">
                <VBox.margin>
-                  <Insets left="300.0" top="100.0" />
+                  <Insets top="150.0" />
                </VBox.margin>
-            </Label>
-            <HBox prefHeight="0.0" prefWidth="1200.0">
+               <children>
+                  <Label text="Choisir le mode de connexion">
+                     <font>
+                        <Font size="41.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onInscription" text="Inscription">
                      <HBox.margin>
-                        <Insets left="300.0" right="100.0" />
+                        <Insets right="100.0" />
                      </HBox.margin>
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Button>
+                  <Region prefHeight="200.0" prefWidth="200.0" />
                   <Button mnemonicParsing="false" onAction="#onConnexion" text="Connexion">
                      <HBox.margin>
                         <Insets />
@@ -40,7 +46,7 @@
                   </Button>
                </children>
                <VBox.margin>
-                  <Insets left="10.0" top="200.0" />
+                  <Insets top="150.0" />
                </VBox.margin>
             </HBox>
          </children>
