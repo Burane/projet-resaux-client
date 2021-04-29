@@ -1,14 +1,9 @@
 package event;
 
-import event.interfaces.AuthentificationEventInterface;
-import event.interfaces.ErrorEventInterface;
-import event.interfaces.SearchEventInterface;
-import event.interfaces.SuccessEventInterface;
-import request.receive.AuthentificationResponse;
-import request.receive.ErrorResponse;
-import request.receive.SearchResponse;
-import request.receive.SuccessResponse;
+import event.interfaces.*;
+import request.receive.*;
 
+import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class EventBus {
@@ -17,6 +12,8 @@ public class EventBus {
 	private CopyOnWriteArrayList<SearchEventInterface> searchListeners = new CopyOnWriteArrayList<>();
 	private CopyOnWriteArrayList<SuccessEventInterface> successListeners = new CopyOnWriteArrayList<>();
 	private CopyOnWriteArrayList<ErrorEventInterface> errorListeners = new CopyOnWriteArrayList<>();
+	private CopyOnWriteArrayList<FullImageEventInterface> fullImageListeners = new CopyOnWriteArrayList<>();
+	private CopyOnWriteArrayList<LikeEventInterface> likeListeners = new CopyOnWriteArrayList<>();
 
 	private EventBus() {
 	}
@@ -82,4 +79,30 @@ public class EventBus {
 	public void notifyErrorListeners(ErrorResponse errorResponse) {
 		errorListeners.forEach(obj -> obj.onErrorResponse(errorResponse));
 	}
+
+	public void subscribeToFullImageEvent(FullImageEventInterface listener) {
+		fullImageListeners.add(listener);
+	}
+
+	public void unSubscribeToFullImageEvent(FullImageEventInterface listener) {
+		fullImageListeners.remove(listener);
+	}
+
+	public void notifyFullImageListeners(FullImageResponse fullImageResponse) {
+		fullImageListeners.forEach(obj -> obj.onFullImageResponse(fullImageResponse));
+	}
+	
+	public void subscribeToLikeEvent(LikeEventInterface listener) {
+		likeListeners.add(listener);
+	}
+
+	public void unSubscribeToLikeEvent(LikeEventInterface listener) {
+		likeListeners.remove(listener);
+	}
+
+	public void notifyLikeListeners(LikeResponse likeResponse) {
+		likeListeners.forEach(obj -> obj.onLikeResponse(likeResponse));
+	}
+
+
 }

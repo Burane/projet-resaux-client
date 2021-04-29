@@ -104,4 +104,5 @@ public class UploadController implements SuccessEventInterface, ErrorEventInterf
 	public void onSuccessResponse(SuccessResponse successResponse) {
 		System.out.println(successResponse);
 	}
+
 }

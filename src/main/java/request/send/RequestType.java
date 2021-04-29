@@ -8,7 +8,8 @@ public enum RequestType {
 	LOGIN("login"),
 	REGISTER("register"),
 	SEARCH("search"),
-	UPLOAD("upload");
+	UPLOAD("upload"),
+	LIKE("like");
 
 	private String field;
 

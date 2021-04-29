@@ -1,5 +1,6 @@
 package request.receive;
 
+import event.EventBus;
 import server.Client;
 
 public class FullImageResponse extends GenericResponse implements GenericResponseInterface {
@@ -8,19 +9,21 @@ public class FullImageResponse extends GenericResponse implements GenericRespons
 	private final int imageId;
 	private final boolean isLikedByUser;
 	private final int nbLike;
+	private final boolean isOwnedByUser;
 
-	public FullImageResponse(String titre, String data, int imageId, int nbLike, boolean isLikedByUser) {
+	public FullImageResponse(String titre, String data, int imageId, int nbLike, boolean isLikedByUser,
+			boolean isOwnedByUser) {
 		this.titre = titre;
 		this.data = data;
 		this.imageId = imageId;
 		this.nbLike = nbLike;
 		this.isLikedByUser = isLikedByUser;
+		this.isOwnedByUser = isOwnedByUser;
 	}
 
 	@Override
 	public void handle(Client client) {
-		// TODO transmettre l'instance au controller
-
+		EventBus.getInstance().notifyFullImageListeners(this);
 	}
 
 	public String getTitre() {
@@ -41,5 +44,14 @@ public class FullImageResponse extends GenericResponse implements GenericRespons
 
 	public int getNbLike() {
 		return nbLike;
+	}
+
+	public boolean isOwnedByUser() {
+		return isOwnedByUser;
+	}
+
+	@Override
+	public String toString() {
+		return "FullImageResponse{" + "titre='" + titre + '\'' + ", imageId=" + imageId + ", isLikedByUser=" + isLikedByUser + ", nbLike=" + nbLike + '}';
 	}
 }
