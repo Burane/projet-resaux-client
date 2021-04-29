@@ -6,10 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import request.receive.SearchResponse;
+import request.send.MyImageSearchRequest;
 import request.send.SearchRequest;
 import server.Client;
 
-public class RechercheController extends ImagePreviewController implements SearchEventInterface {
+public class MesImagesController extends ImagePreviewController implements SearchEventInterface {
 
 	@FXML private TextField rechercheField;
 
@@ -26,7 +27,7 @@ public class RechercheController extends ImagePreviewController implements Searc
 		int limitFrom = pageNumber * imagePerPage;
 		int limitTo = (pageNumber + 1) * imagePerPage;
 		System.out.println("limitFrom " + limitFrom + " limitTo " + limitTo);
-		Client.getInstance().send(new SearchRequest(query, limitFrom, limitTo));
+		Client.getInstance().send(new MyImageSearchRequest(query, limitFrom, limitTo));
 	}
 
 	public void onSearchResponse(SearchResponse searchResponse) {
