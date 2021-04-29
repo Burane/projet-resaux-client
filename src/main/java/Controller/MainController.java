@@ -28,7 +28,7 @@ public class MainController {
 		rootPane.getChildren().add(new ImageView());
 	}
 
-	public void OnInscription(ActionEvent actionEvent) throws IOException {
+	public void onInscription(ActionEvent actionEvent) throws IOException {
 		System.out.println("test");
 		Parent root = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
 		Scene scene = new Scene(root);
