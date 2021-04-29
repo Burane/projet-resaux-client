@@ -57,4 +57,7 @@ public class ConnexionController implements AuthentificationEventInterface {
 		});
 
 	}
+
+	public void onRetour(ActionEvent actionEvent) {
+	}
 }
