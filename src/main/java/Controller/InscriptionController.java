@@ -48,4 +48,6 @@ public class InscriptionController implements ErrorEventInterface {
 	public void onErrorResponse(ErrorResponse errorResponse) {
 		System.out.println(errorResponse);
 	}
+
+
 }

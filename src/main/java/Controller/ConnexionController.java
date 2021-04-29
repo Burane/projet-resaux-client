@@ -60,4 +60,9 @@ public class ConnexionController implements AuthentificationEventInterface {
 
 	public void onRetour(ActionEvent actionEvent) {
 	}
+
+	public void onConnexion(ActionEvent actionEvent) {
+		Client client = Client.getInstance();
+		client.send(new LoginRequest(username.getText(), password.getText()));
+	}
 }
