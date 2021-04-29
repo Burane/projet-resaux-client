@@ -7,7 +7,7 @@ import gson.LocalDateAdapter;
 import java.time.LocalDate;
 
 public abstract class GenericRequest {
-	private String type;
+	private final String type;
 
 	public GenericRequest(RequestType type) {
 		this.type = type.toString();

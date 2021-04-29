@@ -15,8 +15,6 @@ import server.Client;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class RechercheParJoursController implements SearchPerDayEventInterface {
 
@@ -27,12 +25,8 @@ public class RechercheParJoursController implements SearchPerDayEventInterface {
 	@FXML private AreaChart<String, Integer> areaChart;
 
 	@FXML
-	void initialize() {
-	}
-
-	@FXML
 	void OnGo(ActionEvent event) {
-		LocalDate dateFrom = datePickerFrom.getValue().minusDays(1);
+		LocalDate dateFrom = datePickerFrom.getValue();
 		LocalDate dateTo = datePickerTo.getValue();
 
 		if (dateFrom.isAfter(dateTo))
@@ -46,16 +40,13 @@ public class RechercheParJoursController implements SearchPerDayEventInterface {
 	@Override
 	public void onSearchPerDayResponse(SearchPerDayResponse searchPerDayResponse) {
 		EventBus.getInstance().unSubscribeToSearchPerDayEvent(this);
-		System.out.println(searchPerDayResponse);
 		updateChart(searchPerDayResponse.getSearchDayResponses());
 	}
 
 	public void updateChart(ArrayList<OneSearchDayResponse> responses) {
-		responses.sort(Comparator.comparing(OneSearchDayResponse::getDate));
-		System.out.println(Arrays.toString(responses.toArray()));
 		Platform.runLater(() -> {
 			areaChart.getData().clear();
-			XYChart.Series<String, Integer> series = new XYChart.Series();
+			XYChart.Series<String, Integer> series = new XYChart.Series<>();
 			areaChart.setTitle("Du " + datePickerFrom.getValue() + " jusqu'au " + datePickerTo.getValue());
 			series.setName("Nombre de recherches par jour");
 			for (OneSearchDayResponse res : responses) {

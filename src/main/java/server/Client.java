@@ -6,7 +6,6 @@ import request.send.GenericRequest;
 
 import java.io.*;
 import java.net.Socket;
-import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 

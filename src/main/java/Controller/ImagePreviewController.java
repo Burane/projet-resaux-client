@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -24,6 +25,7 @@ import java.util.List;
 
 public abstract class ImagePreviewController {
 
+	@FXML TextField rechercheField;
 	@FXML GridPane gridPane;
 	@FXML Label page;
 

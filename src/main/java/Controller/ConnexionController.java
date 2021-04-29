@@ -50,6 +50,7 @@ public class ConnexionController implements AuthentificationEventInterface {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			assert root != null;
 			Scene scene = new Scene(root);
 			Stage stage = (Stage) rootPane.getScene().getWindow();
 			stage.setScene(scene);
@@ -66,6 +67,7 @@ public class ConnexionController implements AuthentificationEventInterface {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			assert root != null;
 			Scene scene = new Scene(root);
 			Stage stage = (Stage) rootPane.getScene().getWindow();
 			stage.setScene(scene);

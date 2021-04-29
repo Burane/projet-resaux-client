@@ -6,31 +6,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AccueilController">
-   <children>
-      <BorderPane fx:id="scene" prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <MenuBar BorderPane.alignment="CENTER">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Images">
-                     <items>
-                        <MenuItem fx:id="ajouter" mnemonicParsing="false" onAction="#onAjouter" text="Ajouter Image" />
-                        <MenuItem mnemonicParsing="false" onAction="#onRecherche" text="Rechercher Image" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Mon Compte">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#onMyImages" text="Mes images" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Statistiques">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#onRechercheParJour" text="Recherches par jour" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
-         </top>
-      </BorderPane>
-   </children>
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AccueilController">
+   <BorderPane fx:id="scene" prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0"
+               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <top>
+         <MenuBar BorderPane.alignment="CENTER">
+            <Menu mnemonicParsing="false" text="Images">
+               <MenuItem fx:id="ajouter" mnemonicParsing="false" onAction="#onAjouter" text="Ajouter Image"/>
+               <MenuItem mnemonicParsing="false" onAction="#onRecherche" text="Rechercher Image"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Mon Compte">
+               <MenuItem mnemonicParsing="false" onAction="#onMyImages" text="Mes images"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Statistiques">
+               <MenuItem mnemonicParsing="false" onAction="#onRechercheParJour" text="Recherches par jour"/>
+            </Menu>
+         </MenuBar>
+      </top>
+   </BorderPane>
 </AnchorPane>

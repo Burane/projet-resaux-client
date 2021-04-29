@@ -15,17 +15,16 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		AnchorPane anchorPane = null;
 		try {
-			anchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource("Main.fxml"));
+			anchorPane = FXMLLoader.load(getClass().getResource("Main.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		assert anchorPane != null;
 		stage.setScene(new Scene(anchorPane,1024,576));
 		stage.setTitle("ImageBank");
 		stage.setResizable(false);
 		stage.show();
-		stage.setOnCloseRequest(evt -> {
-			System.exit(0);
-		});
+		stage.setOnCloseRequest(evt -> System.exit(0));
 	}
 
 	public static void main(String[] args) {

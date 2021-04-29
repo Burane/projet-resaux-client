@@ -14,7 +14,7 @@ public enum RequestType {
 	SEARCHPERDAY("searchPerDay");
 
 
-	private String field;
+	private final String field;
 
 	RequestType(String field) {
 		this.field = field;

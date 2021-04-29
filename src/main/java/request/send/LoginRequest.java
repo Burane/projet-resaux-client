@@ -1,8 +1,8 @@
 package request.send;
 
 public class LoginRequest extends GenericRequest {
-	private String username;
-	private String password;
+	private final String username;
+	private final String password;
 
 	public LoginRequest(String username, String password) {
 		super(RequestType.LOGIN);

@@ -7,13 +7,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class EventBus {
 	private static volatile EventBus instance;
-	private CopyOnWriteArrayList<AuthentificationEventInterface> authentificationListeners = new CopyOnWriteArrayList<>();
-	private CopyOnWriteArrayList<SearchEventInterface> searchListeners = new CopyOnWriteArrayList<>();
-	private CopyOnWriteArrayList<SuccessEventInterface> successListeners = new CopyOnWriteArrayList<>();
-	private CopyOnWriteArrayList<ErrorEventInterface> errorListeners = new CopyOnWriteArrayList<>();
-	private CopyOnWriteArrayList<FullImageEventInterface> fullImageListeners = new CopyOnWriteArrayList<>();
-	private CopyOnWriteArrayList<LikeEventInterface> likeListeners = new CopyOnWriteArrayList<>();
-	private CopyOnWriteArrayList<SearchPerDayEventInterface> searchPerDayListeners = new CopyOnWriteArrayList<>();
+	private final CopyOnWriteArrayList<AuthentificationEventInterface> authentificationListeners = new CopyOnWriteArrayList<>();
+	private final CopyOnWriteArrayList<SearchEventInterface> searchListeners = new CopyOnWriteArrayList<>();
+	private final CopyOnWriteArrayList<SuccessEventInterface> successListeners = new CopyOnWriteArrayList<>();
+	private final CopyOnWriteArrayList<ErrorEventInterface> errorListeners = new CopyOnWriteArrayList<>();
+	private final CopyOnWriteArrayList<FullImageEventInterface> fullImageListeners = new CopyOnWriteArrayList<>();
+	private final CopyOnWriteArrayList<LikeEventInterface> likeListeners = new CopyOnWriteArrayList<>();
+	private final CopyOnWriteArrayList<SearchPerDayEventInterface> searchPerDayListeners = new CopyOnWriteArrayList<>();
 
 	private EventBus() {
 	}

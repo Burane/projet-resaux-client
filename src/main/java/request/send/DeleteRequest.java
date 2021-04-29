@@ -3,7 +3,7 @@ package request.send;
 import java.util.ArrayList;
 
 public class DeleteRequest extends GenericRequest {
-	private ArrayList<Integer> imageId;
+	private final ArrayList<Integer> imageId;
 
 	public DeleteRequest(ArrayList<Integer> imageId) {
 		super(RequestType.DELETE);

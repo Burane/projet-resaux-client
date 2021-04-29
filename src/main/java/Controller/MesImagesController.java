@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import request.receive.SearchResponse;
 import request.send.MyImageSearchRequest;
-import request.send.SearchRequest;
 import server.Client;
 
 public class MesImagesController extends ImagePreviewController implements SearchEventInterface {

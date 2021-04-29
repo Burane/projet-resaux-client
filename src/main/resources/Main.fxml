@@ -9,47 +9,41 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
-   <children>
-      <VBox prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <HBox alignment="CENTER">
-               <VBox.margin>
-                  <Insets top="150.0" />
-               </VBox.margin>
-               <children>
-                  <Label text="Choisir le mode de connexion">
-                     <font>
-                        <Font size="41.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1200.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#onInscription" text="Inscription">
-                     <HBox.margin>
-                        <Insets right="100.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Button>
-                  <Region prefHeight="200.0" prefWidth="200.0" />
-                  <Button mnemonicParsing="false" onAction="#onConnexion" text="Connexion">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets top="150.0" />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <VBox prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+         AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER">
+         <VBox.margin>
+            <Insets top="150.0"/>
+         </VBox.margin>
+         <Label text="Choisir le mode de connexion">
+            <font>
+               <Font size="41.0"/>
+            </font>
+         </Label>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1200.0">
+         <VBox.margin>
+            <Insets top="150.0"/>
+         </VBox.margin>
+         <Button mnemonicParsing="false" onAction="#onInscription" text="Inscription">
+            <HBox.margin>
+               <Insets right="100.0"/>
+            </HBox.margin>
+            <font>
+               <Font size="28.0"/>
+            </font>
+         </Button>
+         <Region prefHeight="200.0" prefWidth="200.0"/>
+         <Button mnemonicParsing="false" onAction="#onConnexion" text="Connexion">
+            <HBox.margin>
+               <Insets/>
+            </HBox.margin>
+            <font>
+               <Font size="28.0"/>
+            </font>
+         </Button>
+      </HBox>
+   </VBox>
 </AnchorPane>

@@ -13,39 +13,33 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RechercheParJoursController">
-   <children>
-      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="300.0">
-               <children>
-                  <Label text="A partir de" />
-                  <DatePicker fx:id="datePickerFrom">
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin></DatePicker>
-                  <Region prefHeight="200.0" prefWidth="115.0" />
-                  <Label text="Jusqu'au" />
-                  <DatePicker fx:id="datePickerTo">
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin></DatePicker>
-                  <Region prefHeight="200.0" prefWidth="200.0" />
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#OnGo" text="Go" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <AreaChart fx:id="areaChart" prefHeight="600.0" prefWidth="1100.0">
-              <xAxis>
-                <CategoryAxis gapStartAndEnd="false" label="Date" tickLabelGap="0.0" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis label="Nombre de recherches" side="LEFT" />
-              </yAxis>
-            </AreaChart>
-         </children>
-      </HBox>
-   </children>
+   <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="300.0">
+         <Label text="A partir de" />
+         <DatePicker fx:id="datePickerFrom">
+            <VBox.margin>
+               <Insets left="10.0" right="10.0" top="10.0" />
+            </VBox.margin>
+         </DatePicker>
+         <Region prefHeight="200.0" prefWidth="115.0" />
+         <Label text="Jusqu'au" />
+         <DatePicker fx:id="datePickerTo">
+            <VBox.margin>
+               <Insets left="10.0" right="10.0" top="10.0" />
+            </VBox.margin>
+         </DatePicker>
+         <Region prefHeight="200.0" prefWidth="200.0" />
+         <HBox alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#OnGo" text="Go" />
+         </HBox>
+      </VBox>
+      <AreaChart fx:id="areaChart" prefHeight="600.0" prefWidth="1100.0">
+         <xAxis>
+            <CategoryAxis gapStartAndEnd="false" label="Date" tickLabelGap="0.0" tickLabelRotation="-90.0" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis label="Nombre de recherches" side="LEFT" />
+         </yAxis>
+      </AreaChart>
+   </HBox>
 </AnchorPane>

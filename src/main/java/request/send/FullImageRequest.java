@@ -1,7 +1,7 @@
 package request.send;
 
 public class FullImageRequest extends GenericRequest {
-	private int imageId;
+	private final int imageId;
 
 	public FullImageRequest(int imageId) {
 		super(RequestType.FULLIMAGE);

@@ -77,7 +77,7 @@ public class UploadController implements SuccessEventInterface, ErrorEventInterf
 		if (imageArea.getImage() == null)
 			return;
 
-		if (titre.getText() == "" || titre.getText() == null)
+		if (titre.getText().equals("") || titre.getText() == null)
 			return;
 
 		byte[] data = new byte[0];

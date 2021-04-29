@@ -1,9 +1,9 @@
 package request.send;
 
 public class MyImageSearchRequest extends GenericRequest {
-	private String query;
-	private int limitFrom;
-	private int limitTo;
+	private final String query;
+	private final int limitFrom;
+	private final int limitTo;
 
 	public MyImageSearchRequest(String query, int limitFrom, int limitTo) {
 		super(RequestType.MYIMAGESEARCH);

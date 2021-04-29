@@ -12,107 +12,97 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UploadController">
-   <children>
-      <HBox prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox prefHeight="468.0" prefWidth="264.0">
-               <children>
-                  <Pane prefHeight="397.0" prefWidth="257.0">
-                     <children>
-                        <ImageView fx:id="imageArea" fitHeight="333.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true" />
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Button contentDisplay="CENTER" layoutX="80.0" layoutY="53.0" mnemonicParsing="false" onAction="#onChoisirImage" text="Choisir image">
-                           <font>
-                              <Font size="25.0" />
-                           </font></Button>
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <VBox prefHeight="600.0" prefWidth="522.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label prefHeight="56.0" prefWidth="98.0" text="Titre">
-                           <HBox.margin>
-                              <Insets left="30.0" right="30.0" top="25.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="titre" prefHeight="52.0" prefWidth="237.0">
-                           <HBox.margin>
-                              <Insets bottom="30.0" top="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="476.0">
-                     <children>
-                        <Label prefHeight="56.0" prefWidth="94.0" text="Tag">
-                           <HBox.margin>
-                              <Insets left="30.0" right="30.0" top="20.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="tag" prefHeight="52.0" prefWidth="242.0">
-                           <HBox.margin>
-                              <Insets bottom="30.0" top="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="ajouterTag" mnemonicParsing="false" onAction="#onAjouterTag" prefHeight="25.0" prefWidth="116.0" text="Ajouter">
-                           <HBox.margin>
-                              <Insets top="30.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="197.0" prefWidth="522.0" spacing="50.0">
-                     <children>
-                        <TextArea fx:id="tagsArea" editable="false" prefHeight="187.0" prefWidth="534.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font></TextArea>
-                     </children>
-                  </HBox>
-                  <Pane prefHeight="190.0" prefWidth="367.0">
-                     <children>
-                        <Button contentDisplay="CENTER" layoutX="147.0" layoutY="75.0" mnemonicParsing="false" onAction="#onUpload" text="Upload">
-                           <font>
-                              <Font size="25.0" />
-                           </font></Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="30.0" />
-                     </VBox.margin>
-                  </Pane>
-               </children>
-               <HBox.margin>
-                  <Insets left="100.0" />
-               </HBox.margin></VBox>
-         </children>
-      </HBox>
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UploadController">
+    <HBox prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefHeight="468.0" prefWidth="264.0">
+            <Pane prefHeight="397.0" prefWidth="257.0">
+                <ImageView fx:id="imageArea" fitHeight="333.0" fitWidth="257.0" pickOnBounds="true"
+                           preserveRatio="true"/>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+                <Button contentDisplay="CENTER" layoutX="80.0" layoutY="53.0" mnemonicParsing="false"
+                        onAction="#onChoisirImage" text="Choisir image">
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </Button>
+            </Pane>
+        </VBox>
+        <VBox prefHeight="600.0" prefWidth="522.0">
+            <HBox.margin>
+                <Insets left="100.0"/>
+            </HBox.margin>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+                <Label prefHeight="56.0" prefWidth="98.0" text="Titre">
+                    <HBox.margin>
+                        <Insets left="30.0" right="30.0" top="25.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="titre" prefHeight="52.0" prefWidth="237.0">
+                    <HBox.margin>
+                        <Insets bottom="30.0" top="30.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </TextField>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="476.0">
+                <Label prefHeight="56.0" prefWidth="94.0" text="Tag">
+                    <HBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="tag" prefHeight="52.0" prefWidth="242.0">
+                    <HBox.margin>
+                        <Insets bottom="30.0" top="30.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </TextField>
+                <Button fx:id="ajouterTag" mnemonicParsing="false" onAction="#onAjouterTag" prefHeight="25.0"
+                        prefWidth="116.0" text="Ajouter">
+                    <HBox.margin>
+                        <Insets top="30.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Button>
+            </HBox>
+            <HBox prefHeight="197.0" prefWidth="522.0" spacing="50.0">
+                <TextArea fx:id="tagsArea" editable="false" prefHeight="187.0" prefWidth="534.0">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </TextArea>
+            </HBox>
+            <Pane prefHeight="190.0" prefWidth="367.0">
+                <VBox.margin>
+                    <Insets left="30.0"/>
+                </VBox.margin>
+                <Button contentDisplay="CENTER" layoutX="147.0" layoutY="75.0" mnemonicParsing="false"
+                        onAction="#onUpload" text="Upload">
+                    <font>
+                        <Font size="25.0"/>
+                    </font>
+                </Button>
+            </Pane>
+        </VBox>
+    </HBox>
 </AnchorPane>
