@@ -9,7 +9,7 @@ import request.receive.SearchResponse;
 import request.send.SearchRequest;
 import server.Client;
 
-public class RechercheController extends ImagePreviewController implements SearchEventInterface {
+public class MesImagesController extends ImagePreviewController implements SearchEventInterface {
 
 	@FXML private TextField rechercheField;
 
