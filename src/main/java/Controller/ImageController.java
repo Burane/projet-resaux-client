@@ -139,9 +139,9 @@ public class ImageController implements FullImageEventInterface, LikeEventInterf
 			likeButton.setStyle(
 					likeResponse.isLikedByUser() ? "-fx-background-color: #008000" : "-fx-background-color: #FF0000");
 
-			likeButton.setText((likeResponse.isLikedByUser() ?
-					fullImageResponse.getNbLike() + 1 :
-					fullImageResponse.getNbLike()) + " ♥");
+			likeButton.setText((likeResponse.isLikedByUser() ? fullImageResponse.getNbLike() + 1 :
+
+					(fullImageResponse.getNbLike() - (fullImageResponse.isLikedByUser() ? 1 : 0))) + " ♥");
 		});
 
 	}
