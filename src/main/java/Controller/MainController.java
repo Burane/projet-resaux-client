@@ -18,7 +18,7 @@ public class MainController {
 	@FXML
 	AnchorPane rootPane;
 
-	public void OnConnexion(ActionEvent actionEvent) throws IOException {
+	public void onConnexion(ActionEvent actionEvent) throws IOException {
 		System.out.println("test");
 		Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
 		Scene scene = new Scene(root);
@@ -29,7 +29,7 @@ public class MainController {
 		rootPane.getChildren().add(new ImageView());
 	}
 
-	public void OnInscription(ActionEvent actionEvent) throws IOException {
+	public void onInscription(ActionEvent actionEvent) throws IOException {
 		System.out.println("test");
 		Parent root = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
 		Scene scene = new Scene(root);
@@ -37,4 +37,5 @@ public class MainController {
 		stage.setScene(scene);
 		stage.show();
 	}
+
 }
