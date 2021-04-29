@@ -9,6 +9,7 @@ public enum RequestType {
 	REGISTER("register"),
 	SEARCH("search"),
 	UPLOAD("upload"),
+	MYIMAGESEARCH("myImageSearch"),
 	LIKE("like");
 
 	private String field;
