@@ -82,7 +82,7 @@
                         <Insets />
                     </VBox.margin>
                     <children>
-                        <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onPrecedent" prefHeight="40.0" prefWidth="200.0" text="Précédent">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onPrecedent" prefHeight="40.0" prefWidth="200.0" text="Précédent" textAlignment="CENTER">
                             <font>
                                 <Font size="15.0" />
                             </font>

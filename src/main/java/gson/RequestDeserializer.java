@@ -1,10 +1,14 @@
 package gson;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import request.receive.GenericResponse;
 import request.receive.ResponseType;
 import request.receive.*;
+
+import java.lang.management.LockInfo;
+import java.lang.reflect.Type;
+import java.time.LocalDate;
 
 public abstract class RequestDeserializer {
 
@@ -17,9 +21,10 @@ public abstract class RequestDeserializer {
 				.registerSubtype(SearchResponse.class, ResponseType.SEARCH.toString())
 				.registerSubtype(PreviewImageResponse.class, ResponseType.PREVIEWIMAGE.toString())
 				.registerSubtype(LikeResponse.class, ResponseType.LIKE.toString())
+				.registerSubtype(SearchPerDayResponse.class, ResponseType.SEARCHPERDAY.toString())
 				.registerSubtype(FullImageResponse.class, ResponseType.FULLIMAGE.toString());
 
-
-		return new GsonBuilder().registerTypeAdapterFactory(typeAdapterFactory).create();
+		return new GsonBuilder().registerTypeAdapterFactory(typeAdapterFactory)
+				.registerTypeAdapter(LocalDate.class, new LocalDateAdapter()).create();
 	}
 }

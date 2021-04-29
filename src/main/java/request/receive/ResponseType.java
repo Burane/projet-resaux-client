@@ -13,7 +13,10 @@ public enum ResponseType {
 
 	LIKE("like"),
 
-	SEARCH("search");
+	SEARCH("search"),
+
+	SEARCHPERDAY("searchPerDay");
+
 
 	private final String field;
 

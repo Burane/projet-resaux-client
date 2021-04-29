@@ -45,8 +45,6 @@ public class AccueilController {
 	}
 
 	public void onAjouter(ActionEvent actionEvent) {
-		System.out.println("ajouter image");
-		System.out.println(scene);
 		Parent menu = null;
 		try {
 			menu = FXMLLoader.load(getClass().getResource("Upload.fxml"));
@@ -82,5 +80,16 @@ public class AccueilController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void onRechercheParJour(ActionEvent actionEvent) {
+		Parent menu = null;
+		try {
+			menu = FXMLLoader.load(getClass().getResource("RechercheParJours.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		scene.setCenter(menu);
 	}
 }

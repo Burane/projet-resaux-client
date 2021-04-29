@@ -19,7 +19,6 @@ public class MainController {
 	AnchorPane rootPane;
 
 	public void OnConnexion(ActionEvent actionEvent) throws IOException {
-		System.out.println("test");
 		Parent root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) rootPane.getScene().getWindow();

@@ -12,15 +12,20 @@
          <top>
             <MenuBar BorderPane.alignment="CENTER">
                <menus>
-                  <Menu mnemonicParsing="false" text="File">
+                  <Menu mnemonicParsing="false" text="Images">
                      <items>
                         <MenuItem fx:id="ajouter" mnemonicParsing="false" onAction="#onAjouter" text="Ajouter Image" />
                         <MenuItem mnemonicParsing="false" onAction="#onRecherche" text="Rechercher Image" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Edit">
+                  <Menu mnemonicParsing="false" text="Mon Compte">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#onMyImages" text="Mes images" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Statistiques">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onRechercheParJour" text="Recherches par jour" />
                      </items>
                   </Menu>
                </menus>

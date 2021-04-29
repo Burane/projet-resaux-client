@@ -3,7 +3,6 @@ package event;
 import event.interfaces.*;
 import request.receive.*;
 
-import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class EventBus {
@@ -14,6 +13,7 @@ public class EventBus {
 	private CopyOnWriteArrayList<ErrorEventInterface> errorListeners = new CopyOnWriteArrayList<>();
 	private CopyOnWriteArrayList<FullImageEventInterface> fullImageListeners = new CopyOnWriteArrayList<>();
 	private CopyOnWriteArrayList<LikeEventInterface> likeListeners = new CopyOnWriteArrayList<>();
+	private CopyOnWriteArrayList<SearchPerDayEventInterface> searchPerDayListeners = new CopyOnWriteArrayList<>();
 
 	private EventBus() {
 	}
@@ -102,6 +102,17 @@ public class EventBus {
 
 	public void notifyLikeListeners(LikeResponse likeResponse) {
 		likeListeners.forEach(obj -> obj.onLikeResponse(likeResponse));
+	}
+	public void subscribeToSearchPerDayEvent(SearchPerDayEventInterface listener) {
+		searchPerDayListeners.add(listener);
+	}
+
+	public void unSubscribeToSearchPerDayEvent(SearchPerDayEventInterface listener) {
+		searchPerDayListeners.remove(listener);
+	}
+
+	public void notifySearchPerDayListeners(SearchPerDayResponse searchPerDayResponse) {
+		searchPerDayListeners.forEach(obj -> obj.onSearchPerDayResponse(searchPerDayResponse));
 	}
 
 

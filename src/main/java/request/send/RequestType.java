@@ -10,7 +10,9 @@ public enum RequestType {
 	SEARCH("search"),
 	UPLOAD("upload"),
 	MYIMAGESEARCH("myImageSearch"),
-	LIKE("like");
+	LIKE("like"),
+	SEARCHPERDAY("searchPerDay");
+
 
 	private String field;
 
