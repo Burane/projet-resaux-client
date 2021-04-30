@@ -50,7 +50,8 @@ public abstract class ImagePreviewController {
 				if (nodes.get(i) instanceof AnchorPane) {
 
 					AnchorPane imageView = (AnchorPane) nodes.get(i);
-					imageView.setCache(false);
+					imageView.setOnMouseClicked(null);
+					imageView.setCache(true);
 
 					if (i < images.size()) {
 
